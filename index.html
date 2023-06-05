@@ -6,6 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Song of the week!</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .like-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .like-button:hover {
+            background-color: #45a049;
+        }
+        .like-count {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body class="text-center">
     <h1 class="text-4xl font-bold my-8">
@@ -13,10 +31,46 @@
     </h1>
     <p class="text-lg mb-4">Week: 05/06/2023</p>
     <div class="flex justify-center">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5xYGTGsdS2IywPO8HsB4Z7?utm_source=generator" width="250" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius: 12px" src="https://open.spotify.com/embed/track/5xYGTGsdS2IywPO8HsB4Z7?utm_source=generator" width="250" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
     <p class="text-lg mb-4">And as always, have a nice week..</p>
-    <!-- If you see this, DM me anywhere for a prize -->
+     <!-- If you see this, DM me anywhere for a prize -->
+    <div>
+        <br>
+    <button class="like-button" id="like-button">I liked this week's song</button>
+    <p class="like-count" id="like-count">0 people liked this song.</p>
+    
+    </div>
+    
+    <script>
+      var likeButton = document.getElementById('like-button');
+var likeCount = document.getElementById('like-count');
+var count = localStorage.getItem('likeCount') || 0;
+var isButtonDisabled = localStorage.getItem('isButtonDisabled') === 'true';
+
+likeCount.textContent = count + (count === 1 ? ' person liked this song.' : ' people liked this song.');
+
+if (isButtonDisabled) {
+    disableButton();
+}
+
+likeButton.addEventListener('click', function() {
+    if (!isButtonDisabled) {
+        count++;
+        localStorage.setItem('likeCount', count);
+        likeCount.textContent = count + (count === 1 ? ' person liked this song.' : ' people liked this song.');
+        disableButton();
+    }
+});
+
+function disableButton() {
+    likeButton.disabled = true;
+    isButtonDisabled = true;
+    localStorage.setItem('isButtonDisabled', true);
+}
+
+    </script>
 </body>
 </html>
+
 
