@@ -34,42 +34,9 @@
         <iframe style="border-radius: 12px" src="https://open.spotify.com/embed/track/5xYGTGsdS2IywPO8HsB4Z7?utm_source=generator" width="250" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
     <p class="text-lg mb-4">And as always, have a nice week..</p>
-     <!-- If you see this, DM me anywhere for a prize -->
-    <div>
-        <br>
-    <button class="like-button" id="like-button">I liked this week's song</button>
-    <p class="like-count" id="like-count">0 people liked this song.</p>
-    
+    <!-- Question of the week : What's your favorite drink ? 
+    DM me the answer -->
     </div>
-    
-    <script>
-      var likeButton = document.getElementById('like-button');
-var likeCount = document.getElementById('like-count');
-var count = localStorage.getItem('likeCount') || 0;
-var isButtonDisabled = localStorage.getItem('isButtonDisabled') === 'true';
-
-likeCount.textContent = count + (count === 1 ? ' person liked this song.' : ' people liked this song.');
-
-if (isButtonDisabled) {
-    disableButton();
-}
-
-likeButton.addEventListener('click', function() {
-    if (!isButtonDisabled) {
-        count++;
-        localStorage.setItem('likeCount', count);
-        likeCount.textContent = count + (count === 1 ? ' person liked this song.' : ' people liked this song.');
-        disableButton();
-    }
-});
-
-function disableButton() {
-    likeButton.disabled = true;
-    isButtonDisabled = true;
-    localStorage.setItem('isButtonDisabled', true);
-}
-
-    </script>
 </body>
 </html>
 
