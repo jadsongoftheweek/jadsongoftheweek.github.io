@@ -9,7 +9,7 @@ body {
 }
 
 .song-of-the-week {
-    background: linear-gradient(to right, #283c86, #45a247);
+    background: #1db954;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
