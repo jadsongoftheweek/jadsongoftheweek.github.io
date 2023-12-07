@@ -14,6 +14,12 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+.special-edition {
+    background: #15ab92;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .text-center {
     text-align: center;
 }
